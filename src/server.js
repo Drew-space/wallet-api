@@ -6,6 +6,11 @@ dotenv.config();
 
 import transactionsRoute from "./routes/transactionsRoute.js";
 
+import job from "./config/cron.js";
+if (process.env.NODE_ENV === "production") job.start();
+
+
+
 const app = express();
 // middles ware
 app.use(express.json());
